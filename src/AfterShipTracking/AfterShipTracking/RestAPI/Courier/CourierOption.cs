@@ -10,37 +10,46 @@ namespace AfterShipTracking
     /// <summary>
     /// Description
     /// </summary>
-    public class GetUserCouriersOptions : BaseOptions
-    {
-        public GetUserCouriersOptions() { }
-    }
-
-    /// <summary>
-    /// Description
-    /// </summary>
     public class DetectCourierOptions : BaseOptions
     {
-        public DetectCourierOptions() { }
+        public  DetectCourierOptions()
+        {
+        }
+
 
         public DetectCourierRequest DetectCourierRequest { get; set; }
 
-        public override string GetBody()
+        override public string GetBody()
         {
             string body = null;
 
-            if (DetectCourierRequest != null)
+            if ( DetectCourierRequest != null)
             {
                 body = BaseResourceService.ToJson(DetectCourierRequest);
             }
             return body;
         }
     }
-
     /// <summary>
     /// Description
     /// </summary>
     public class GetAllCouriersOptions : BaseOptions
     {
-        public GetAllCouriersOptions() { }
+        public  GetAllCouriersOptions()
+        {
+        }
+
+
+    }
+    /// <summary>
+    /// Description
+    /// </summary>
+    public class GetUserCouriersOptions : BaseOptions
+    {
+        public  GetUserCouriersOptions()
+        {
+        }
+
+
     }
 }

@@ -11,34 +11,21 @@ namespace AfterShipTracking
     /// <summary>
     /// Tracking response for returning single tracking
     /// </summary>
-    public class TrackingResponseV1
+    public class  TrackingResponseV1
     {
         /// <summary>
         ///  Meta Meta data
         /// </summary>
         [JsonProperty("meta")]
-        public MetaV1 Meta { get; set; }
-
+        public MetaV1  Meta { get; set; }
         /// <summary>
-        ///  Data
+        ///  Data Object describes the tracking information.<div style="display:none; height: 0"></div>
         /// </summary>
         [JsonProperty("data")]
-        public DataTrackingResponseV1 Data { get; set; }
-
-        public TrackingResponseV1() { }
+        public Tracking  Data { get; set; }
+        public TrackingResponseV1()
+        {
+        }
     }
-
-    /// <summary>
-    ///
-    /// </summary>
-    public class DataTrackingResponseV1
-    {
-        /// <summary>
-        ///  Tracking Object describes the tracking information.<div style="display:none; height: 0"></div>
-        /// </summary>
-        [JsonProperty("tracking", NullValueHandling = NullValueHandling.Ignore)]
-        public Tracking? Tracking { get; set; }
-
-        public DataTrackingResponseV1() { }
-    }
+    
 }
