@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "eEFXXhsKE76GI//KnDRBNC9XFswRZfz9lHMXJi4YD16vrnRklm+M4/GuHivh2Ks8KlXPAmCl1cqLBT/ZmQou3w==",
+  "success": true,
+  "projectFilePath": "/Users/xl.pan/Documents/code/team-mocha/public-tracking-sdk/tracking-sdk-net/src/AfterShipTracking/AfterShipTracking/AfterShipTracking.csproj",
+  "expectedPackageFiles": [
+    "/Users/xl.pan/.nuget/packages/microsoft.identitymodel.abstractions/7.5.1/microsoft.identitymodel.abstractions.7.5.1.nupkg.sha512",
+    "/Users/xl.pan/.nuget/packages/microsoft.identitymodel.jsonwebtokens/7.5.1/microsoft.identitymodel.jsonwebtokens.7.5.1.nupkg.sha512",
+    "/Users/xl.pan/.nuget/packages/microsoft.identitymodel.logging/7.5.1/microsoft.identitymodel.logging.7.5.1.nupkg.sha512",
+    "/Users/xl.pan/.nuget/packages/microsoft.identitymodel.tokens/7.5.1/microsoft.identitymodel.tokens.7.5.1.nupkg.sha512",
+    "/Users/xl.pan/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
+    "/Users/xl.pan/.nuget/packages/nunit/4.1.0/nunit.4.1.0.nupkg.sha512",
+    "/Users/xl.pan/.nuget/packages/nunit3testadapter/4.5.0/nunit3testadapter.4.5.0.nupkg.sha512",
+    "/Users/xl.pan/.nuget/packages/system.identitymodel.tokens.jwt/7.5.0/system.identitymodel.tokens.jwt.7.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
