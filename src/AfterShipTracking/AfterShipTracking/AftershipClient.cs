@@ -67,6 +67,7 @@ namespace AfterShipTracking
         public TrackingService Tracking { get; set; }
         public CourierService Courier { get; set; }
         public EstimatedDeliveryDateService EstimatedDeliveryDate { get; set; }
+        public CourierConnectionService CourierConnection { get; set; }
         public AfterShipClient(
             string domain = null,
             string apiKey = null,
@@ -81,8 +82,8 @@ namespace AfterShipTracking
         {
             Domain = domain ?? AfterShipConfiguration.Domain;
             ApiBase = Domain;
-            MaxRetry = maxRetry == 0 ? AfterShipConfiguration.MaxRetry : maxRetry;
-            Timeout = timeout == 0 ? AfterShipConfiguration.Timeout : timeout;
+            MaxRetry = maxRetry ==0 ? AfterShipConfiguration.MaxRetry:maxRetry;
+            Timeout = timeout ==0? AfterShipConfiguration.Timeout: timeout;
             UserAgent = userAgent ?? AfterShipConfiguration.UserAgent;
             Proxy = proxy ?? AfterShipConfiguration.Proxy;
             ApiKey = apiKey ?? AfterShipConfiguration.ApiKey;
@@ -93,11 +94,12 @@ namespace AfterShipTracking
 
             Authenticator authenticator = new Authenticator(ApiKey, ApiSecret, AuthenticationType);
 
-            HttpClient = httpClient ?? new SystemNetHttpClient(this.ApiBase, authenticator, this.MaxRetry, this.Timeout, this.UserAgent, this.Proxy);
+            HttpClient = httpClient ?? new SystemNetHttpClient(this.ApiBase, authenticator, this.MaxRetry, this.Timeout, this.UserAgent,this.Proxy);
 
             Tracking = new TrackingService(HttpClient);
             Courier = new CourierService(HttpClient);
             EstimatedDeliveryDate = new EstimatedDeliveryDateService(HttpClient);
+            CourierConnection = new CourierConnectionService(HttpClient);
         }
 
         private void CheckConfig()

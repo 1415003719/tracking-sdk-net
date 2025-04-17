@@ -11,40 +11,40 @@ namespace AfterShipTracking
     /// <summary>
     /// Model of all couriers endpoint response
     /// </summary>
-    public class CourierResponseV1
+    public class  CourierResponse
     {
         /// <summary>
         ///  Meta Meta data
         /// </summary>
         [JsonProperty("meta")]
-        public MetaV1 Meta { get; set; }
+        public Meta  Meta { get; set; }
         /// <summary>
         ///  Data 
         /// </summary>
         [JsonProperty("data")]
-        public DataCourierResponseV1 Data { get; set; }
-        public CourierResponseV1()
+        public DataCourierResponse  Data { get; set; }
+        public CourierResponse()
         {
         }
     }
-
+    
     /// <summary>
     /// 
     /// </summary>
-    public class DataCourierResponseV1
+    public class  DataCourierResponse
     {
         /// <summary>
         ///  Total Total count of courier objects
         /// </summary>
-        [JsonProperty("total", NullValueHandling = NullValueHandling.Ignore)]
-        public int? Total { get; set; }
+        [JsonProperty("total",NullValueHandling = NullValueHandling.Ignore)]
+        public int?  Total { get; set; }
         /// <summary>
         ///  Couriers Array of  object.
         /// </summary>
-        [JsonProperty("couriers", NullValueHandling = NullValueHandling.Ignore)]
-        public Courier?[] Couriers { get; set; }
+        [JsonProperty("couriers",NullValueHandling = NullValueHandling.Ignore)]
+        public Courier? [] Couriers { get; set; }
 
-        public DataCourierResponseV1()
+        public DataCourierResponse()
         {
         }
     }

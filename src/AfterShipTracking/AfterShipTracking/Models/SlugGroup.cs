@@ -12,7 +12,7 @@ namespace AfterShipTracking
     /// Slug group is a group of slugs which belong to same courier. For example, when you inpit &#34;fedex-group&#34; as slug_group, AfterShip will detect the tracking with &#34;fedex-uk&#34;, &#34;fedex-fims&#34;, and other slugs which belong to &#34;fedex&#34;. It cannot be used with slug at the same time. (
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum SlugGroupV1
+    public enum SlugGroup
     {
         [EnumMember(Value = "amazon-group")]
         AmazonGroup,

@@ -11,18 +11,18 @@ namespace AfterShipTracking
     /// <summary>
     /// 
     /// </summary>
-    public class  GetTrackingsResponse
+    public class  GetCourierConnectionsResponse
     {
         /// <summary>
-        ///  Pagination The Pagination holds the information for the pagination when the response contains multiple objects.
+        ///  Pagination 
         /// </summary>
         [JsonProperty("pagination")]
-        public PaginationGetTrackingsResponse?  Pagination { get; set; }
+        public PaginationGetCourierConnectionsResponse?  Pagination { get; set; }
         /// <summary>
-        ///  Trackings Array of 
+        ///  CourierConnections 
         /// </summary>
-        [JsonProperty("trackings")]
-        public Tracking? [] Trackings { get; set; }
+        [JsonProperty("courier_connections")]
+        public CourierConnection? [] CourierConnections { get; set; }
         /// <summary>
         ///  Page 
         /// </summary>
@@ -38,7 +38,7 @@ namespace AfterShipTracking
         /// </summary>
         [JsonProperty("total")]
         public int?  Count { get; set; }
-        public GetTrackingsResponse()
+        public GetCourierConnectionsResponse()
         {
         }
     }
@@ -46,10 +46,10 @@ namespace AfterShipTracking
     /// <summary>
     /// 
     /// </summary>
-    public class  PaginationGetTrackingsResponse
+    public class  PaginationGetCourierConnectionsResponse
     {
         /// <summary>
-        ///  Total The total number of trackings.
+        ///  Total The total number of courier connections.
         /// </summary>
         [JsonProperty("total")]
         public int?  Total { get; set; }
@@ -64,27 +64,27 @@ namespace AfterShipTracking
         [JsonProperty("has_next_page")]
         public bool?  HasNextPage { get; set; }
 
-        public PaginationGetTrackingsResponse()
+        public PaginationGetCourierConnectionsResponse()
         {
         }
     }
     /// <summary>
     /// 
     /// </summary>
-    public class  GetTrackingsResponseTrackingListData
+    public class  GetCourierConnectionsResponseCourierConnectionListData
     {
         /// <summary>
-        ///  Trackings 
+        ///  CourierConnections 
         /// </summary>
-        [JsonProperty("trackings")]
-        public Tracking? [] Trackings { get; set; }
+        [JsonProperty("courier_connections")]
+        public CourierConnection? [] CourierConnections { get; set; }
         /// <summary>
         ///  Pagination 
         /// </summary>
         [JsonProperty("pagination")]
         public PaginationPage?  Pagination { get; set; }
 
-        public GetTrackingsResponseTrackingListData()
+        public GetCourierConnectionsResponseCourierConnectionListData()
         {
         }
     }

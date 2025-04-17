@@ -11,16 +11,16 @@ namespace AfterShipTracking
     /// <summary>
     /// 
     /// </summary>
-    public class PredictBatchResponse
+    public class  PredictBatchResponse
     {
         /// <summary>
         ///  EstimatedDeliveryDates 
         /// </summary>
         [JsonProperty("estimated_delivery_dates")]
-        public EstimatedDeliveryDateResponse[] EstimatedDeliveryDates { get; set; }
+        public EstimatedDeliveryDateResponse [] EstimatedDeliveryDates { get; set; }
         public PredictBatchResponse()
         {
         }
     }
-
+    
 }
