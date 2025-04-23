@@ -22,6 +22,7 @@ If you need support using AfterShip products, please contact support@aftership.c
   - [Endpoints](#endpoints)
     - [/trackings](#trackings)
     - [/couriers](#couriers)
+    - [/courier-connections](#courier-connections)
     - [/estimated-delivery-date](#estimated-delivery-date)
   - [Help](#help)
   - [License](#license)
@@ -41,6 +42,7 @@ Each SDK version is designed to work with a specific API version. Please refer t
 
 | SDK Version | Supported API Version | Branch                                                     |
 | ----------- | --------------------- | ---------------------------------------------------------- |
+| 11.x.x      | 2025-04               | https://github.com/AfterShip/tracking-sdk-net/tree/2025-04 |
 | 10.x.x      | 2025-01               | https://github.com/AfterShip/tracking-sdk-net/tree/2025-01 |
 | 9.x.x       | 2024-10               | https://github.com/AfterShip/tracking-sdk-net/tree/2024-10 |
 | 8.x.x       | 2024-07               | https://github.com/AfterShip/tracking-sdk-net/tree/2024-07 |
@@ -130,7 +132,7 @@ class Program
 
 ## Rate Limiter
 
-See the [Rate Limit](https://www.aftership.com/docs/tracking/2025-01/quickstart/rate-limit) to understand the AfterShip rate limit policy.
+See the [Rate Limit](https://www.aftership.com/docs/tracking/2025-04/quickstart/rate-limit) to understand the AfterShip rate limit policy.
 
 ## Error Handling
 
@@ -178,6 +180,7 @@ The AfterShip instance has the following properties which are exactly the same a
 
 - courier - Get a list of our supported couriers.
 - tracking - Create trackings, update trackings, and get tracking results.
+- courier-connection - Create courier connections, update courier connections, and get courier connections results.
 - estimated-delivery-date - Get estimated delivery date for your order.
 
 
@@ -216,7 +219,7 @@ if (resp != null)
 ```csharp
 GetTrackingsOptions options = new GetTrackingsOptions();
 options.Keyword = "test";
-GetTrackingsResponseTrackingListData trackingsData = client.Tracking.GetTrackings(options);
+GetTrackingsResponse trackingsData = client.Tracking.GetTrackings(options);
 if (trackingsData != null && trackingsData.Trackings != null)
 {
     for (int i = 0; i < trackingsData.Trackings.Length; i++)
@@ -274,16 +277,8 @@ Console.WriteLine(tracking.TrackingNumber);
 **GET** /couriers
 
 ```csharp
-GetUserCouriersOptions options = new GetUserCouriersOptions();
-GetUserCouriersResponse resp = client.Courier.GetUserCouriers(options);
-Console.WriteLine(resp.Total);
-```
-
-**GET** /couriers/all
-
-```csharp
-GetAllCouriersOptions options = new GetAllCouriersOptions();
-GetAllCouriersResponse resp = client.Courier.GetAllCouriers(options);
+GetCouriersOptions options = new GetCouriersOptions();
+GetCouriersResponse resp = client.Courier.GetCouriers(options);
 Console.WriteLine(resp.Total);
 ```
 

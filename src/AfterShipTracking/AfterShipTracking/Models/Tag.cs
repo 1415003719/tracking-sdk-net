@@ -12,7 +12,7 @@ namespace AfterShipTracking
     /// Current status of tracking. (
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum TagV1
+    public enum Tag
     {
         [EnumMember(Value = "Pending")]
         Pending,

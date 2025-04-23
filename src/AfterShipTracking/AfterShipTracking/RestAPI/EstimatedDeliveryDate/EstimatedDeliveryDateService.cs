@@ -16,21 +16,9 @@ namespace AfterShipTracking
             this.HttpClient = httpClient;
         }
 
-        public EstimatedDeliveryDateResponse Predict(PredictOptions? options = null)
+        public PredictBatchResponse PredictBatch( PredictBatchOptions? options = null)
         {
-            string path = $"/tracking/2025-01/estimated-delivery-date/predict";
-            Request request = new Request(
-                HttpMethod.Post,
-                path,
-                options
-            );
-
-            var response = this.HttpClient.MakeRequest(request);
-            return ProcessData<EstimatedDeliveryDateResponse>(response);
-        }
-        public PredictBatchResponse PredictBatch(PredictBatchOptions? options = null)
-        {
-            string path = $"/tracking/2025-01/estimated-delivery-date/predict-batch";
+            string path = $"/tracking/2025-04/estimated-delivery-date/predict-batch";
             Request request = new Request(
                 HttpMethod.Post,
                 path,
@@ -39,6 +27,18 @@ namespace AfterShipTracking
 
             var response = this.HttpClient.MakeRequest(request);
             return ProcessData<PredictBatchResponse>(response);
+        }
+        public EstimatedDeliveryDateResponse Predict( PredictOptions? options = null)
+        {
+            string path = $"/tracking/2025-04/estimated-delivery-date/predict";
+            Request request = new Request(
+                HttpMethod.Post,
+                path,
+                options
+            );
+
+            var response = this.HttpClient.MakeRequest(request);
+            return ProcessData<EstimatedDeliveryDateResponse>(response);
         }
     }
 }

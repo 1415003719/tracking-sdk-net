@@ -11,65 +11,65 @@ namespace AfterShipTracking
     /// <summary>
     /// Tracking response for getting tracking
     /// </summary>
-    public class TrackingResponseGetMultipleV1
+    public class  TrackingResponseForGetTrackings
     {
         /// <summary>
         ///  Meta Meta data
         /// </summary>
         [JsonProperty("meta")]
-        public MetaV1 Meta { get; set; }
+        public Meta  Meta { get; set; }
         /// <summary>
         ///  Data 
         /// </summary>
-        [JsonProperty("data", NullValueHandling = NullValueHandling.Ignore)]
-        public DataTrackingResponseGetMultipleV1? Data { get; set; }
-        public TrackingResponseGetMultipleV1()
+        [JsonProperty("data",NullValueHandling = NullValueHandling.Ignore)]
+        public DataTrackingResponseForGetTrackings?  Data { get; set; }
+        public TrackingResponseForGetTrackings()
         {
         }
     }
-
+    
     /// <summary>
     /// 
     /// </summary>
-    public class DataTrackingResponseGetMultipleV1
+    public class  DataTrackingResponseForGetTrackings
     {
         /// <summary>
         ///  Pagination The Pagination holds the information for the pagination when the response contains multiple objects.
         /// </summary>
-        [JsonProperty("pagination", NullValueHandling = NullValueHandling.Ignore)]
-        public PaginationDataTrackingResponseGetMultipleV1? Pagination { get; set; }
+        [JsonProperty("pagination",NullValueHandling = NullValueHandling.Ignore)]
+        public PaginationDataTrackingResponseForGetTrackings?  Pagination { get; set; }
         /// <summary>
         ///  Trackings Array of 
         /// </summary>
-        [JsonProperty("trackings", NullValueHandling = NullValueHandling.Ignore)]
-        public Tracking?[] Trackings { get; set; }
+        [JsonProperty("trackings",NullValueHandling = NullValueHandling.Ignore)]
+        public Tracking? [] Trackings { get; set; }
 
-        public DataTrackingResponseGetMultipleV1()
+        public DataTrackingResponseForGetTrackings()
         {
         }
     }
     /// <summary>
     /// 
     /// </summary>
-    public class PaginationDataTrackingResponseGetMultipleV1
+    public class  PaginationDataTrackingResponseForGetTrackings
     {
         /// <summary>
         ///  Total The total number of trackings.
         /// </summary>
-        [JsonProperty("total", NullValueHandling = NullValueHandling.Ignore)]
-        public int? Total { get; set; }
+        [JsonProperty("total",NullValueHandling = NullValueHandling.Ignore)]
+        public int?  Total { get; set; }
         /// <summary>
         ///  NextCursor A string representing the cursor value for the next page of results.
         /// </summary>
-        [JsonProperty("next_cursor", NullValueHandling = NullValueHandling.Ignore)]
-        public string? NextCursor { get; set; }
+        [JsonProperty("next_cursor",NullValueHandling = NullValueHandling.Ignore)]
+        public string?  NextCursor { get; set; }
         /// <summary>
         ///  HasNextPage To indicate if next page is available.
         /// </summary>
-        [JsonProperty("has_next_page", NullValueHandling = NullValueHandling.Ignore)]
-        public bool? HasNextPage { get; set; }
+        [JsonProperty("has_next_page",NullValueHandling = NullValueHandling.Ignore)]
+        public bool?  HasNextPage { get; set; }
 
-        public PaginationDataTrackingResponseGetMultipleV1()
+        public PaginationDataTrackingResponseForGetTrackings()
         {
         }
     }

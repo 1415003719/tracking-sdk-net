@@ -11,21 +11,21 @@ namespace AfterShipTracking
     /// <summary>
     /// 
     /// </summary>
-    public class DetectCourierResponse
+    public class  DetectCourierResponse
     {
         /// <summary>
         ///  Total Total count of courier objects
         /// </summary>
         [JsonProperty("total")]
-        public int? Total { get; set; }
+        public int?  Total { get; set; }
         /// <summary>
         ///  Couriers Array of  object.
         /// </summary>
         [JsonProperty("couriers")]
-        public Courier?[] Couriers { get; set; }
+        public Courier? [] Couriers { get; set; }
         public DetectCourierResponse()
         {
         }
     }
-
+    
 }

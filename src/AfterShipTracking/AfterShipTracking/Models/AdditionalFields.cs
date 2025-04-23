@@ -12,21 +12,21 @@ namespace AfterShipTracking
     /// All available additional fields
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum AdditionalFieldsV1
+    public enum AdditionalFields
     {
         [EnumMember(Value = "tracking_account_number")]
         TrackingAccountNumber,
-        [EnumMember(Value = "tracking_postal_code")]
-        TrackingPostalCode,
-        [EnumMember(Value = "tracking_ship_date")]
-        TrackingShipDate,
+        [EnumMember(Value = "destination_postal_code")]
+        DestinationPostalCode,
+        [EnumMember(Value = "destination_state")]
+        DestinationState,
         [EnumMember(Value = "tracking_key")]
         TrackingKey,
-        [EnumMember(Value = "tracking_origin_country_region")]
-        TrackingOriginCountryRegion,
-        [EnumMember(Value = "tracking_destination_country_region")]
-        TrackingDestinationCountryRegion,
-        [EnumMember(Value = "tracking_state")]
-        TrackingState,
+        [EnumMember(Value = "origin_country_region")]
+        OriginCountryRegion,
+        [EnumMember(Value = "destination_country_region")]
+        DestinationCountryRegion,
+        [EnumMember(Value = "tracking_ship_date")]
+        TrackingShipDate,
     }
 }

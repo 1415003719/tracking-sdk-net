@@ -10,31 +10,29 @@ namespace AfterShipTracking
     /// <summary>
     /// Description
     /// </summary>
-    public class GetAllCouriersOptions : BaseOptions
+    public class GetCouriersOptions : BaseOptions
     {
-        public GetAllCouriersOptions()
+        public  GetCouriersOptions()
         {
         }
 
+        public string Active { get; set; }
+        public string Slug { get; set; }
 
-    }
-    /// <summary>
-    /// Description
-    /// </summary>
-    public class GetUserCouriersOptions : BaseOptions
-    {
-        public GetUserCouriersOptions()
+        override public List<KeyValuePair<string, string>> GetQueryParams()
         {
+            var p = new List<KeyValuePair<string, string>>();
+            p.Add(new KeyValuePair<string, string>("active", Active));
+            p.Add(new KeyValuePair<string, string>("slug", Slug));
+            return p;
         }
-
-
     }
     /// <summary>
     /// Description
     /// </summary>
     public class DetectCourierOptions : BaseOptions
     {
-        public DetectCourierOptions()
+        public  DetectCourierOptions()
         {
         }
 
@@ -45,7 +43,7 @@ namespace AfterShipTracking
         {
             string body = null;
 
-            if (DetectCourierRequest != null)
+            if ( DetectCourierRequest != null)
             {
                 body = BaseResourceService.ToJson(DetectCourierRequest);
             }
