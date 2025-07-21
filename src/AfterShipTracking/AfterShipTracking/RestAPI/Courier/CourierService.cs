@@ -18,7 +18,7 @@ namespace AfterShipTracking
 
         public GetCouriersResponse GetCouriers( GetCouriersOptions? options = null)
         {
-            string path = $"/tracking/2025-04/couriers";
+            string path = $"/tracking/2025-07/couriers";
             Request request = new Request(
                 HttpMethod.Get,
                 path,
@@ -30,7 +30,7 @@ namespace AfterShipTracking
         }
         public DetectCourierResponse DetectCourier( DetectCourierOptions? options = null)
         {
-            string path = $"/tracking/2025-04/couriers/detect";
+            string path = $"/tracking/2025-07/couriers/detect";
             Request request = new Request(
                 HttpMethod.Post,
                 path,

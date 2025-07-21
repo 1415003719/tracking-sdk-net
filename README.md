@@ -22,7 +22,6 @@ If you need support using AfterShip products, please contact support@aftership.c
   - [Endpoints](#endpoints)
     - [/trackings](#trackings)
     - [/couriers](#couriers)
-    - [/courier-connections](#courier-connections)
     - [/estimated-delivery-date](#estimated-delivery-date)
   - [Help](#help)
   - [License](#license)
@@ -42,6 +41,7 @@ Each SDK version is designed to work with a specific API version. Please refer t
 
 | SDK Version | Supported API Version | Branch                                                     |
 | ----------- | --------------------- | ---------------------------------------------------------- |
+| 12.x.x      | 2025-07               | https://github.com/AfterShip/tracking-sdk-net/tree/2025-07 |
 | 11.x.x      | 2025-04               | https://github.com/AfterShip/tracking-sdk-net/tree/2025-04 |
 | 10.x.x      | 2025-01               | https://github.com/AfterShip/tracking-sdk-net/tree/2025-01 |
 | 9.x.x       | 2024-10               | https://github.com/AfterShip/tracking-sdk-net/tree/2024-10 |
@@ -132,7 +132,7 @@ class Program
 
 ## Rate Limiter
 
-See the [Rate Limit](https://www.aftership.com/docs/tracking/2025-04/quickstart/rate-limit) to understand the AfterShip rate limit policy.
+See the [Rate Limit](https://www.aftership.com/docs/tracking/2025-07/quickstart/rate-limit) to understand the AfterShip rate limit policy.
 
 ## Error Handling
 

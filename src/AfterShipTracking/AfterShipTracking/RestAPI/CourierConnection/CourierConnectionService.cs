@@ -16,37 +16,9 @@ namespace AfterShipTracking
             this.HttpClient = httpClient;
         }
 
-        public CourierConnection PutCourierConnectionsById(string id,  PutCourierConnectionsByIdOptions? options = null)
-        {
-            string path = $"/tracking/2025-04/courier-connections/{id}";
-            if (string.IsNullOrEmpty(id))
-            {
-               throw ErrorCode.GenSDKError(ErrorCode.REQUEST_ERROR,"request error"+": `id` is invalid");
-            }
-            Request request = new Request(
-                HttpMethod.Patch,
-                path,
-                options
-            );
-
-            var response = this.HttpClient.MakeRequest(request);
-            return ProcessData<CourierConnection>(response);
-        }
-        public GetCourierConnectionsResponseCourierConnectionListData GetCourierConnections( GetCourierConnectionsOptions? options = null)
-        {
-            string path = $"/tracking/2025-04/courier-connections";
-            Request request = new Request(
-                HttpMethod.Get,
-                path,
-                options
-            );
-
-            var response = this.HttpClient.MakeRequest(request);
-            return ProcessData<GetCourierConnectionsResponseCourierConnectionListData>(response);
-        }
         public CourierConnection PostCourierConnections( PostCourierConnectionsOptions? options = null)
         {
-            string path = $"/tracking/2025-04/courier-connections";
+            string path = $"/tracking/2025-07/courier-connections";
             Request request = new Request(
                 HttpMethod.Post,
                 path,
@@ -56,9 +28,37 @@ namespace AfterShipTracking
             var response = this.HttpClient.MakeRequest(request);
             return ProcessData<CourierConnection>(response);
         }
+        public CourierConnection DeleteCourierConnectionsById(string id,  DeleteCourierConnectionsByIdOptions? options = null)
+        {
+            string path = $"/tracking/2025-07/courier-connections/{id}";
+            if (string.IsNullOrEmpty(id))
+            {
+               throw ErrorCode.GenSDKError(ErrorCode.REQUEST_ERROR,"request error"+": `id` is invalid");
+            }
+            Request request = new Request(
+                HttpMethod.Delete,
+                path,
+                options
+            );
+
+            var response = this.HttpClient.MakeRequest(request);
+            return ProcessData<CourierConnection>(response);
+        }
+        public GetCourierConnectionsResponseCourierConnectionListData GetCourierConnections( GetCourierConnectionsOptions? options = null)
+        {
+            string path = $"/tracking/2025-07/courier-connections";
+            Request request = new Request(
+                HttpMethod.Get,
+                path,
+                options
+            );
+
+            var response = this.HttpClient.MakeRequest(request);
+            return ProcessData<GetCourierConnectionsResponseCourierConnectionListData>(response);
+        }
         public CourierConnection GetCourierConnectionsById(string id,  GetCourierConnectionsByIdOptions? options = null)
         {
-            string path = $"/tracking/2025-04/courier-connections/{id}";
+            string path = $"/tracking/2025-07/courier-connections/{id}";
             if (string.IsNullOrEmpty(id))
             {
                throw ErrorCode.GenSDKError(ErrorCode.REQUEST_ERROR,"request error"+": `id` is invalid");
@@ -72,15 +72,15 @@ namespace AfterShipTracking
             var response = this.HttpClient.MakeRequest(request);
             return ProcessData<CourierConnection>(response);
         }
-        public CourierConnection DeleteCourierConnectionsById(string id,  DeleteCourierConnectionsByIdOptions? options = null)
+        public CourierConnection PutCourierConnectionsById(string id,  PutCourierConnectionsByIdOptions? options = null)
         {
-            string path = $"/tracking/2025-04/courier-connections/{id}";
+            string path = $"/tracking/2025-07/courier-connections/{id}";
             if (string.IsNullOrEmpty(id))
             {
                throw ErrorCode.GenSDKError(ErrorCode.REQUEST_ERROR,"request error"+": `id` is invalid");
             }
             Request request = new Request(
-                HttpMethod.Delete,
+                HttpMethod.Patch,
                 path,
                 options
             );
