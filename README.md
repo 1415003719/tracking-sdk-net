@@ -353,7 +353,7 @@ Dictionary<string, string> credentails = new Dictionary<string, string>();
 credentails.Add("api_key", "<dhl_api_key>");
 req.Credentials = credentails;
 putCourierConnectionsOptions.PutCourierConnectionsByIdRequest = req;
-CourierConnection courierConnection = client.CourierConnection.PutCourierConnectionsById("a5e8781ad3d249888a98e827760c3ad2", putCourierConnectionsOptions);
+CourierConnection courierConnection = client.CourierConnection.PutCourierConnectionsById("<courier connection id>", putCourierConnectionsOptions);
 if (courierConnection != null)
 {
     Console.WriteLine(courierConnection.Id);
