@@ -42,6 +42,7 @@ Each SDK version is designed to work with a specific API version. Please refer t
 
 | SDK Version | Supported API Version | Branch                                                     |
 | ----------- | --------------------- | ---------------------------------------------------------- |
+| 12.x.x      | 2025-07               | https://github.com/AfterShip/tracking-sdk-net/tree/2025-07 |
 | 11.x.x      | 2025-04               | https://github.com/AfterShip/tracking-sdk-net/tree/2025-04 |
 | 10.x.x      | 2025-01               | https://github.com/AfterShip/tracking-sdk-net/tree/2025-01 |
 | 9.x.x       | 2024-10               | https://github.com/AfterShip/tracking-sdk-net/tree/2024-10 |
@@ -132,7 +133,7 @@ class Program
 
 ## Rate Limiter
 
-See the [Rate Limit](https://www.aftership.com/docs/tracking/2025-04/quickstart/rate-limit) to understand the AfterShip rate limit policy.
+See the [Rate Limit](https://www.aftership.com/docs/tracking/2025-07/quickstart/rate-limit) to understand the AfterShip rate limit policy.
 
 ## Error Handling
 
@@ -293,6 +294,73 @@ DetectCourierResponse resp = client.Courier.DetectCourier(options);
 Console.WriteLine(resp.Total);
 ```
 
+### /courier-connections
+
+**POST** /courier-connections
+```csharp
+PostCourierConnectionsOptions postCourierConnectionsOptions = new PostCourierConnectionsOptions();
+postCourierConnectionsOptions.PostCourierConnectionsRequest = new PostCourierConnectionsRequest();
+PostCourierConnectionsRequest req = new PostCourierConnectionsRequest();
+req.CourierSlug = "dhl-api";
+Dictionary<string, string> credentails = new Dictionary<string, string>();
+credentails.Add("api_key", "<dhl_api_key>");
+req.Credentials = credentails;
+postCourierConnectionsOptions.PostCourierConnectionsRequest = req;
+CourierConnection createdCourierConnection = client.CourierConnection.PostCourierConnections(postCourierConnectionsOptions);
+if (createdCourierConnection != null)
+{
+    Console.WriteLine(createdCourierConnection.Id);
+}
+```
+
+**GET** /courier-connections
+```csharp
+GetCourierConnectionsResponseCourierConnectionListData listCourierConnectionData = client.CourierConnection.GetCourierConnections();
+if (listCourierConnectionData != null)
+{
+    for (int i = 0; i < listCourierConnectionData.CourierConnections.Length; i++)
+    {
+        Console.WriteLine(listCourierConnectionData.CourierConnections[i].Id);
+    }
+}
+```
+
+**GET** /courier-connections/:id
+```csharp
+CourierConnection courierConnection = client.CourierConnection.GetCourierConnectionsById("<courier connection id>");
+if (courierConnection != null)
+{
+    Console.WriteLine(courierConnection.Id);
+}
+```
+
+**DELETE** /courier-connections/:id
+```csharp
+CourierConnection courierConnection = client.CourierConnection.DeleteCourierConnectionsById("<courier connection id>");
+if (courierConnection != null)
+{
+    Console.WriteLine(courierConnection.Id);
+}
+```
+
+**PATCH** /courier-connections/:id
+```csharp
+PutCourierConnectionsByIdOptions putCourierConnectionsOptions = new PutCourierConnectionsByIdOptions();
+putCourierConnectionsOptions.PutCourierConnectionsByIdRequest = new PutCourierConnectionsByIdRequest();
+PutCourierConnectionsByIdRequest req = new PutCourierConnectionsByIdRequest();
+
+Dictionary<string, string> credentails = new Dictionary<string, string>();
+credentails.Add("api_key", "<dhl_api_key>");
+req.Credentials = credentails;
+putCourierConnectionsOptions.PutCourierConnectionsByIdRequest = req;
+CourierConnection courierConnection = client.CourierConnection.PutCourierConnectionsById("<courier connection id>", putCourierConnectionsOptions);
+if (courierConnection != null)
+{
+    Console.WriteLine(courierConnection.Id);
+}
+```
+
+
 ### /estimated-delivery-date
 
 **POST** /estimated-delivery-date/predict-batch
@@ -324,6 +392,33 @@ r2.BusinessDays = new int?[] { 0 };
 
 PredictBatchResponse resp = client.EstimatedDeliveryDate.PredictBatch(options);
 Console.WriteLine(resp.EstimatedDeliveryDates[0].PickupTime);
+```
+
+**POST** /estimated-delivery-date/predict
+
+```csharp
+PredictOptions options = new PredictOptions();
+PredictRequest request = new PredictRequest();
+
+EstimatedDeliveryDateRequest estimatedDeliveryDateRequest = new EstimatedDeliveryDateRequest();
+
+DestinationAddressEstimatedDeliveryDateRequest dest = new DestinationAddressEstimatedDeliveryDateRequest();
+dest.CountryRegion = "<ISO 3166-1 country/region code>";
+dest.State = "<ISO 3166-1 country/region code>";
+estimatedDeliveryDateRequest.DestinationAddress = dest;
+
+OriginAddressEstimatedDeliveryDateRequest origin = new OriginAddressEstimatedDeliveryDateRequest();
+origin.CountryRegion = "<ISO 3166-1 country/region code>";
+origin.State = "<ISO 3166-1 country/region code>";
+estimatedDeliveryDateRequest.OriginAddress = origin;
+
+estimatedDeliveryDateRequest.Slug = "<slug>";
+estimatedDeliveryDateRequest.PickupTime = "2024-08-01 06:42:30";
+
+options.PredictRequest = request;
+
+EstimatedDeliveryDateResponse resp = client.EstimatedDeliveryDate.Predict(options);
+Console.WriteLine(resp.PickupTime);
 ```
 
 ## Help

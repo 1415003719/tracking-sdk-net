@@ -18,7 +18,7 @@ namespace AfterShipTracking
 
         public Tracking GetTrackingById(string id,  GetTrackingByIdOptions? options = null)
         {
-            string path = $"/tracking/2025-04/trackings/{id}";
+            string path = $"/tracking/2025-07/trackings/{id}";
             if (string.IsNullOrEmpty(id))
             {
                throw ErrorCode.GenSDKError(ErrorCode.REQUEST_ERROR,"request error"+": `id` is invalid");
@@ -32,25 +32,9 @@ namespace AfterShipTracking
             var response = this.HttpClient.MakeRequest(request);
             return ProcessData<Tracking>(response);
         }
-        public Tracking UpdateTrackingById(string id,  UpdateTrackingByIdOptions? options = null)
-        {
-            string path = $"/tracking/2025-04/trackings/{id}";
-            if (string.IsNullOrEmpty(id))
-            {
-               throw ErrorCode.GenSDKError(ErrorCode.REQUEST_ERROR,"request error"+": `id` is invalid");
-            }
-            Request request = new Request(
-                HttpMethod.Put,
-                path,
-                options
-            );
-
-            var response = this.HttpClient.MakeRequest(request);
-            return ProcessData<Tracking>(response);
-        }
         public Tracking DeleteTrackingById(string id,  DeleteTrackingByIdOptions? options = null)
         {
-            string path = $"/tracking/2025-04/trackings/{id}";
+            string path = $"/tracking/2025-07/trackings/{id}";
             if (string.IsNullOrEmpty(id))
             {
                throw ErrorCode.GenSDKError(ErrorCode.REQUEST_ERROR,"request error"+": `id` is invalid");
@@ -64,9 +48,25 @@ namespace AfterShipTracking
             var response = this.HttpClient.MakeRequest(request);
             return ProcessData<Tracking>(response);
         }
+        public Tracking MarkTrackingCompletedById(string id,  MarkTrackingCompletedByIdOptions? options = null)
+        {
+            string path = $"/tracking/2025-07/trackings/{id}/mark-as-completed";
+            if (string.IsNullOrEmpty(id))
+            {
+               throw ErrorCode.GenSDKError(ErrorCode.REQUEST_ERROR,"request error"+": `id` is invalid");
+            }
+            Request request = new Request(
+                HttpMethod.Post,
+                path,
+                options
+            );
+
+            var response = this.HttpClient.MakeRequest(request);
+            return ProcessData<Tracking>(response);
+        }
         public GetTrackingsResponseTrackingListData GetTrackings( GetTrackingsOptions? options = null)
         {
-            string path = $"/tracking/2025-04/trackings";
+            string path = $"/tracking/2025-07/trackings";
             Request request = new Request(
                 HttpMethod.Get,
                 path,
@@ -76,41 +76,41 @@ namespace AfterShipTracking
             var response = this.HttpClient.MakeRequest(request);
             return ProcessData<GetTrackingsResponseTrackingListData>(response);
         }
-        public Tracking RetrackTrackingById(string id,  RetrackTrackingByIdOptions? options = null)
-        {
-            string path = $"/tracking/2025-04/trackings/{id}/retrack";
-            if (string.IsNullOrEmpty(id))
-            {
-               throw ErrorCode.GenSDKError(ErrorCode.REQUEST_ERROR,"request error"+": `id` is invalid");
-            }
-            Request request = new Request(
-                HttpMethod.Post,
-                path,
-                options
-            );
-
-            var response = this.HttpClient.MakeRequest(request);
-            return ProcessData<Tracking>(response);
-        }
-        public Tracking MarkTrackingCompletedById(string id,  MarkTrackingCompletedByIdOptions? options = null)
-        {
-            string path = $"/tracking/2025-04/trackings/{id}/mark-as-completed";
-            if (string.IsNullOrEmpty(id))
-            {
-               throw ErrorCode.GenSDKError(ErrorCode.REQUEST_ERROR,"request error"+": `id` is invalid");
-            }
-            Request request = new Request(
-                HttpMethod.Post,
-                path,
-                options
-            );
-
-            var response = this.HttpClient.MakeRequest(request);
-            return ProcessData<Tracking>(response);
-        }
         public Tracking CreateTracking( CreateTrackingOptions? options = null)
         {
-            string path = $"/tracking/2025-04/trackings";
+            string path = $"/tracking/2025-07/trackings";
+            Request request = new Request(
+                HttpMethod.Post,
+                path,
+                options
+            );
+
+            var response = this.HttpClient.MakeRequest(request);
+            return ProcessData<Tracking>(response);
+        }
+        public Tracking UpdateTrackingById(string id,  UpdateTrackingByIdOptions? options = null)
+        {
+            string path = $"/tracking/2025-07/trackings/{id}";
+            if (string.IsNullOrEmpty(id))
+            {
+               throw ErrorCode.GenSDKError(ErrorCode.REQUEST_ERROR,"request error"+": `id` is invalid");
+            }
+            Request request = new Request(
+                HttpMethod.Put,
+                path,
+                options
+            );
+
+            var response = this.HttpClient.MakeRequest(request);
+            return ProcessData<Tracking>(response);
+        }
+        public Tracking RetrackTrackingById(string id,  RetrackTrackingByIdOptions? options = null)
+        {
+            string path = $"/tracking/2025-07/trackings/{id}/retrack";
+            if (string.IsNullOrEmpty(id))
+            {
+               throw ErrorCode.GenSDKError(ErrorCode.REQUEST_ERROR,"request error"+": `id` is invalid");
+            }
             Request request = new Request(
                 HttpMethod.Post,
                 path,

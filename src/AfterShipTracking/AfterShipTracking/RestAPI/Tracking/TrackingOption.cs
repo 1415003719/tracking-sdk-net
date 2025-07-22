@@ -30,29 +30,6 @@ namespace AfterShipTracking
     /// <summary>
     /// Description
     /// </summary>
-    public class UpdateTrackingByIdOptions : BaseOptions
-    {
-        public  UpdateTrackingByIdOptions()
-        {
-        }
-
-
-        public UpdateTrackingByIdRequest UpdateTrackingByIdRequest { get; set; }
-
-        override public string GetBody()
-        {
-            string body = null;
-
-            if ( UpdateTrackingByIdRequest != null)
-            {
-                body = BaseResourceService.ToJson(UpdateTrackingByIdRequest);
-            }
-            return body;
-        }
-    }
-    /// <summary>
-    /// Description
-    /// </summary>
     public class DeleteTrackingByIdOptions : BaseOptions
     {
         public  DeleteTrackingByIdOptions()
@@ -60,6 +37,29 @@ namespace AfterShipTracking
         }
 
 
+    }
+    /// <summary>
+    /// Description
+    /// </summary>
+    public class MarkTrackingCompletedByIdOptions : BaseOptions
+    {
+        public  MarkTrackingCompletedByIdOptions()
+        {
+        }
+
+
+        public MarkTrackingCompletedByIdRequest MarkTrackingCompletedByIdRequest { get; set; }
+
+        override public string GetBody()
+        {
+            string body = null;
+
+            if ( MarkTrackingCompletedByIdRequest != null)
+            {
+                body = BaseResourceService.ToJson(MarkTrackingCompletedByIdRequest);
+            }
+            return body;
+        }
     }
     /// <summary>
     /// Description
@@ -116,40 +116,6 @@ namespace AfterShipTracking
     /// <summary>
     /// Description
     /// </summary>
-    public class RetrackTrackingByIdOptions : BaseOptions
-    {
-        public  RetrackTrackingByIdOptions()
-        {
-        }
-
-
-    }
-    /// <summary>
-    /// Description
-    /// </summary>
-    public class MarkTrackingCompletedByIdOptions : BaseOptions
-    {
-        public  MarkTrackingCompletedByIdOptions()
-        {
-        }
-
-
-        public MarkTrackingCompletedByIdRequest MarkTrackingCompletedByIdRequest { get; set; }
-
-        override public string GetBody()
-        {
-            string body = null;
-
-            if ( MarkTrackingCompletedByIdRequest != null)
-            {
-                body = BaseResourceService.ToJson(MarkTrackingCompletedByIdRequest);
-            }
-            return body;
-        }
-    }
-    /// <summary>
-    /// Description
-    /// </summary>
     public class CreateTrackingOptions : BaseOptions
     {
         public  CreateTrackingOptions()
@@ -169,5 +135,39 @@ namespace AfterShipTracking
             }
             return body;
         }
+    }
+    /// <summary>
+    /// Description
+    /// </summary>
+    public class UpdateTrackingByIdOptions : BaseOptions
+    {
+        public  UpdateTrackingByIdOptions()
+        {
+        }
+
+
+        public UpdateTrackingByIdRequest UpdateTrackingByIdRequest { get; set; }
+
+        override public string GetBody()
+        {
+            string body = null;
+
+            if ( UpdateTrackingByIdRequest != null)
+            {
+                body = BaseResourceService.ToJson(UpdateTrackingByIdRequest);
+            }
+            return body;
+        }
+    }
+    /// <summary>
+    /// Description
+    /// </summary>
+    public class RetrackTrackingByIdOptions : BaseOptions
+    {
+        public  RetrackTrackingByIdOptions()
+        {
+        }
+
+
     }
 }

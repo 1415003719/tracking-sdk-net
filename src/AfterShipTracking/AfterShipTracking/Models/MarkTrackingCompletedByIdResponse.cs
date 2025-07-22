@@ -564,7 +564,7 @@ namespace AfterShipTracking
         [JsonProperty("datetime_max")]
         public string?  DatetimeMax { get; set; }
         /// <summary>
-        ///  ReviseReason Explains the reason for a change to the latest_estimated_delivery. This string will only have a value if:1. The source for the latest EDD is AfterShip EDD. 2. The reason for the change is known.For a comprehensive list of reasons, please refer to this document.
+        ///  ReviseReason Explains the reason for a change to the latest_estimated_delivery. This string will only have a value if:1. The source for the latest EDD is AfterShip EDD. 2. The reason for the change is known.For a comprehensive list of reasons, please refer to .
         /// </summary>
         [JsonProperty("revise_reason")]
         public string?  ReviseReason { get; set; }
