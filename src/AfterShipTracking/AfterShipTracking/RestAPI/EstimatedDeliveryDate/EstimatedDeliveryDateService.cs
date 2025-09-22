@@ -16,7 +16,7 @@ namespace AfterShipTracking
             this.HttpClient = httpClient;
         }
 
-        public EstimatedDeliveryDateResponse Predict( PredictOptions? options = null)
+        public PredictResponse Predict( PredictOptions? options = null)
         {
             string path = $"/tracking/2025-07/estimated-delivery-date/predict";
             Request request = new Request(
@@ -26,7 +26,13 @@ namespace AfterShipTracking
             );
 
             var response = this.HttpClient.MakeRequest(request);
-            return ProcessData<EstimatedDeliveryDateResponse>(response);
+            EstimatedDeliveryDateResponse responseData = ProcessData<EstimatedDeliveryDateResponse>(response);
+
+            PredictResponse result = new PredictResponse();
+            result.ResponseHeader = response.Headers;
+            result.Data = responseData;
+
+            return result;
         }
         public PredictBatchResponse PredictBatch( PredictBatchOptions? options = null)
         {
@@ -38,7 +44,13 @@ namespace AfterShipTracking
             );
 
             var response = this.HttpClient.MakeRequest(request);
-            return ProcessData<PredictBatchResponse>(response);
+            PredictBatchResponseData responseData = ProcessData<PredictBatchResponseData>(response);
+
+            PredictBatchResponse result = new PredictBatchResponse();
+            result.ResponseHeader = response.Headers;
+            result.Data = responseData;
+
+            return result;
         }
     }
 }

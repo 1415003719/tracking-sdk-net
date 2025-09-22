@@ -26,7 +26,13 @@ namespace AfterShipTracking
             );
 
             var response = this.HttpClient.MakeRequest(request);
-            return ProcessData<GetCouriersResponse>(response);
+            GetCouriersResponseData responseData = ProcessData<GetCouriersResponseData>(response);
+
+            GetCouriersResponse result = new GetCouriersResponse();
+            result.ResponseHeader = response.Headers;
+            result.Data = responseData;
+
+            return result;
         }
         public DetectCourierResponse DetectCourier( DetectCourierOptions? options = null)
         {
@@ -38,7 +44,13 @@ namespace AfterShipTracking
             );
 
             var response = this.HttpClient.MakeRequest(request);
-            return ProcessData<DetectCourierResponse>(response);
+            DetectCourierResponseData responseData = ProcessData<DetectCourierResponseData>(response);
+
+            DetectCourierResponse result = new DetectCourierResponse();
+            result.ResponseHeader = response.Headers;
+            result.Data = responseData;
+
+            return result;
         }
     }
 }
