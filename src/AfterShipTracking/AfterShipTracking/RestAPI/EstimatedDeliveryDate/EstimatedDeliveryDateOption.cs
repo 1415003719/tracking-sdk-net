@@ -10,29 +10,6 @@ namespace AfterShipTracking
     /// <summary>
     /// Description
     /// </summary>
-    public class PredictBatchOptions : BaseOptions
-    {
-        public  PredictBatchOptions()
-        {
-        }
-
-
-        public PredictBatchRequest PredictBatchRequest { get; set; }
-
-        override public string GetBody()
-        {
-            string body = null;
-
-            if ( PredictBatchRequest != null)
-            {
-                body = BaseResourceService.ToJson(PredictBatchRequest);
-            }
-            return body;
-        }
-    }
-    /// <summary>
-    /// Description
-    /// </summary>
     public class PredictOptions : BaseOptions
     {
         public  PredictOptions()
@@ -49,6 +26,29 @@ namespace AfterShipTracking
             if ( PredictRequest != null)
             {
                 body = BaseResourceService.ToJson(PredictRequest);
+            }
+            return body;
+        }
+    }
+    /// <summary>
+    /// Description
+    /// </summary>
+    public class PredictBatchOptions : BaseOptions
+    {
+        public  PredictBatchOptions()
+        {
+        }
+
+
+        public PredictBatchRequest PredictBatchRequest { get; set; }
+
+        override public string GetBody()
+        {
+            string body = null;
+
+            if ( PredictBatchRequest != null)
+            {
+                body = BaseResourceService.ToJson(PredictBatchRequest);
             }
             return body;
         }

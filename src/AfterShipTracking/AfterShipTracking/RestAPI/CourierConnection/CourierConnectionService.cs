@@ -16,11 +16,15 @@ namespace AfterShipTracking
             this.HttpClient = httpClient;
         }
 
-        public CourierConnection PostCourierConnections( PostCourierConnectionsOptions? options = null)
+        public CourierConnection PutCourierConnectionsById(string id,  PutCourierConnectionsByIdOptions? options = null)
         {
-            string path = $"/tracking/2025-07/courier-connections";
+            string path = $"/tracking/2025-07/courier-connections/{id}";
+            if (string.IsNullOrEmpty(id))
+            {
+               throw ErrorCode.GenSDKError(ErrorCode.REQUEST_ERROR,"request error"+": `id` is invalid");
+            }
             Request request = new Request(
-                HttpMethod.Post,
+                HttpMethod.Patch,
                 path,
                 options
             );
@@ -44,7 +48,7 @@ namespace AfterShipTracking
             var response = this.HttpClient.MakeRequest(request);
             return ProcessData<CourierConnection>(response);
         }
-        public GetCourierConnectionsResponseCourierConnectionListData GetCourierConnections( GetCourierConnectionsOptions? options = null)
+        public GetCourierConnectionsResponse GetCourierConnections( GetCourierConnectionsOptions? options = null)
         {
             string path = $"/tracking/2025-07/courier-connections";
             Request request = new Request(
@@ -54,7 +58,19 @@ namespace AfterShipTracking
             );
 
             var response = this.HttpClient.MakeRequest(request);
-            return ProcessData<GetCourierConnectionsResponseCourierConnectionListData>(response);
+            return ProcessData<GetCourierConnectionsResponse>(response);
+        }
+        public CourierConnection PostCourierConnections( PostCourierConnectionsOptions? options = null)
+        {
+            string path = $"/tracking/2025-07/courier-connections";
+            Request request = new Request(
+                HttpMethod.Post,
+                path,
+                options
+            );
+
+            var response = this.HttpClient.MakeRequest(request);
+            return ProcessData<CourierConnection>(response);
         }
         public CourierConnection GetCourierConnectionsById(string id,  GetCourierConnectionsByIdOptions? options = null)
         {
@@ -65,22 +81,6 @@ namespace AfterShipTracking
             }
             Request request = new Request(
                 HttpMethod.Get,
-                path,
-                options
-            );
-
-            var response = this.HttpClient.MakeRequest(request);
-            return ProcessData<CourierConnection>(response);
-        }
-        public CourierConnection PutCourierConnectionsById(string id,  PutCourierConnectionsByIdOptions? options = null)
-        {
-            string path = $"/tracking/2025-07/courier-connections/{id}";
-            if (string.IsNullOrEmpty(id))
-            {
-               throw ErrorCode.GenSDKError(ErrorCode.REQUEST_ERROR,"request error"+": `id` is invalid");
-            }
-            Request request = new Request(
-                HttpMethod.Patch,
                 path,
                 options
             );

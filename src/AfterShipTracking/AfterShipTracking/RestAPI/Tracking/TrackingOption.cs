@@ -10,29 +10,9 @@ namespace AfterShipTracking
     /// <summary>
     /// Description
     /// </summary>
-    public class GetTrackingByIdOptions : BaseOptions
+    public class RetrackTrackingByIdOptions : BaseOptions
     {
-        public  GetTrackingByIdOptions()
-        {
-        }
-
-        public string Fields { get; set; }
-        public string Lang { get; set; }
-
-        override public List<KeyValuePair<string, string>> GetQueryParams()
-        {
-            var p = new List<KeyValuePair<string, string>>();
-            p.Add(new KeyValuePair<string, string>("fields", Fields));
-            p.Add(new KeyValuePair<string, string>("lang", Lang));
-            return p;
-        }
-    }
-    /// <summary>
-    /// Description
-    /// </summary>
-    public class DeleteTrackingByIdOptions : BaseOptions
-    {
-        public  DeleteTrackingByIdOptions()
+        public  RetrackTrackingByIdOptions()
         {
         }
 
@@ -116,6 +96,26 @@ namespace AfterShipTracking
     /// <summary>
     /// Description
     /// </summary>
+    public class GetTrackingByIdOptions : BaseOptions
+    {
+        public  GetTrackingByIdOptions()
+        {
+        }
+
+        public string Fields { get; set; }
+        public string Lang { get; set; }
+
+        override public List<KeyValuePair<string, string>> GetQueryParams()
+        {
+            var p = new List<KeyValuePair<string, string>>();
+            p.Add(new KeyValuePair<string, string>("fields", Fields));
+            p.Add(new KeyValuePair<string, string>("lang", Lang));
+            return p;
+        }
+    }
+    /// <summary>
+    /// Description
+    /// </summary>
     public class CreateTrackingOptions : BaseOptions
     {
         public  CreateTrackingOptions()
@@ -139,6 +139,17 @@ namespace AfterShipTracking
     /// <summary>
     /// Description
     /// </summary>
+    public class DeleteTrackingByIdOptions : BaseOptions
+    {
+        public  DeleteTrackingByIdOptions()
+        {
+        }
+
+
+    }
+    /// <summary>
+    /// Description
+    /// </summary>
     public class UpdateTrackingByIdOptions : BaseOptions
     {
         public  UpdateTrackingByIdOptions()
@@ -158,16 +169,5 @@ namespace AfterShipTracking
             }
             return body;
         }
-    }
-    /// <summary>
-    /// Description
-    /// </summary>
-    public class RetrackTrackingByIdOptions : BaseOptions
-    {
-        public  RetrackTrackingByIdOptions()
-        {
-        }
-
-
     }
 }

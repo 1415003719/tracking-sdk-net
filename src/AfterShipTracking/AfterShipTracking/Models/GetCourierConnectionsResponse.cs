@@ -24,6 +24,11 @@ namespace AfterShipTracking
         [JsonProperty("courier_connections")]
         public CourierConnection? [] CourierConnections { get; set; }
         /// <summary>
+        ///  Count 
+        /// </summary>
+        [JsonProperty("total")]
+        public int?  Count { get; set; }
+        /// <summary>
         ///  Page 
         /// </summary>
         [JsonProperty("page")]
@@ -33,11 +38,6 @@ namespace AfterShipTracking
         /// </summary>
         [JsonProperty("limit")]
         public int?  Limit { get; set; }
-        /// <summary>
-        ///  Count 
-        /// </summary>
-        [JsonProperty("total")]
-        public int?  Count { get; set; }
         public GetCourierConnectionsResponse()
         {
         }
@@ -65,26 +65,6 @@ namespace AfterShipTracking
         public bool?  HasNextPage { get; set; }
 
         public PaginationGetCourierConnectionsResponse()
-        {
-        }
-    }
-    /// <summary>
-    /// 
-    /// </summary>
-    public class  GetCourierConnectionsResponseCourierConnectionListData
-    {
-        /// <summary>
-        ///  CourierConnections 
-        /// </summary>
-        [JsonProperty("courier_connections")]
-        public CourierConnection? [] CourierConnections { get; set; }
-        /// <summary>
-        ///  Pagination 
-        /// </summary>
-        [JsonProperty("pagination")]
-        public PaginationPage?  Pagination { get; set; }
-
-        public GetCourierConnectionsResponseCourierConnectionListData()
         {
         }
     }

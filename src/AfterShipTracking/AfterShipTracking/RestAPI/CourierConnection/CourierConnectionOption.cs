@@ -10,22 +10,22 @@ namespace AfterShipTracking
     /// <summary>
     /// Description
     /// </summary>
-    public class PostCourierConnectionsOptions : BaseOptions
+    public class PutCourierConnectionsByIdOptions : BaseOptions
     {
-        public  PostCourierConnectionsOptions()
+        public  PutCourierConnectionsByIdOptions()
         {
         }
 
 
-        public PostCourierConnectionsRequest PostCourierConnectionsRequest { get; set; }
+        public PutCourierConnectionsByIdRequest PutCourierConnectionsByIdRequest { get; set; }
 
         override public string GetBody()
         {
             string body = null;
 
-            if ( PostCourierConnectionsRequest != null)
+            if ( PutCourierConnectionsByIdRequest != null)
             {
-                body = BaseResourceService.ToJson(PostCourierConnectionsRequest);
+                body = BaseResourceService.ToJson(PutCourierConnectionsByIdRequest);
             }
             return body;
         }
@@ -66,6 +66,29 @@ namespace AfterShipTracking
     /// <summary>
     /// Description
     /// </summary>
+    public class PostCourierConnectionsOptions : BaseOptions
+    {
+        public  PostCourierConnectionsOptions()
+        {
+        }
+
+
+        public PostCourierConnectionsRequest PostCourierConnectionsRequest { get; set; }
+
+        override public string GetBody()
+        {
+            string body = null;
+
+            if ( PostCourierConnectionsRequest != null)
+            {
+                body = BaseResourceService.ToJson(PostCourierConnectionsRequest);
+            }
+            return body;
+        }
+    }
+    /// <summary>
+    /// Description
+    /// </summary>
     public class GetCourierConnectionsByIdOptions : BaseOptions
     {
         public  GetCourierConnectionsByIdOptions()
@@ -73,28 +96,5 @@ namespace AfterShipTracking
         }
 
 
-    }
-    /// <summary>
-    /// Description
-    /// </summary>
-    public class PutCourierConnectionsByIdOptions : BaseOptions
-    {
-        public  PutCourierConnectionsByIdOptions()
-        {
-        }
-
-
-        public PutCourierConnectionsByIdRequest PutCourierConnectionsByIdRequest { get; set; }
-
-        override public string GetBody()
-        {
-            string body = null;
-
-            if ( PutCourierConnectionsByIdRequest != null)
-            {
-                body = BaseResourceService.ToJson(PutCourierConnectionsByIdRequest);
-            }
-            return body;
-        }
     }
 }
