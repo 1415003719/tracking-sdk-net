@@ -68,24 +68,4 @@ namespace AfterShipTracking
         {
         }
     }
-    /// <summary>
-    /// 
-    /// </summary>
-    public class  GetTrackingsResponseTrackingListData
-    {
-        /// <summary>
-        ///  Trackings 
-        /// </summary>
-        [JsonProperty("trackings")]
-        public Tracking? [] Trackings { get; set; }
-        /// <summary>
-        ///  Pagination 
-        /// </summary>
-        [JsonProperty("pagination")]
-        public PaginationPage?  Pagination { get; set; }
-
-        public GetTrackingsResponseTrackingListData()
-        {
-        }
-    }
 }

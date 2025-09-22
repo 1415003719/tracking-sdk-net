@@ -64,10 +64,10 @@ namespace AfterShipTracking
 
         public IHttpClient HttpClient { get; }
 
-        public CourierConnectionService CourierConnection { get; set; }
         public TrackingService Tracking { get; set; }
-        public EstimatedDeliveryDateService EstimatedDeliveryDate { get; set; }
         public CourierService Courier { get; set; }
+        public CourierConnectionService CourierConnection { get; set; }
+        public EstimatedDeliveryDateService EstimatedDeliveryDate { get; set; }
         public AfterShipClient(
             string domain = null,
             string apiKey = null,
@@ -96,10 +96,10 @@ namespace AfterShipTracking
 
             HttpClient = httpClient ?? new SystemNetHttpClient(this.ApiBase, authenticator, this.MaxRetry, this.Timeout, this.UserAgent,this.Proxy);
 
-            CourierConnection = new CourierConnectionService(HttpClient);
             Tracking = new TrackingService(HttpClient);
-            EstimatedDeliveryDate = new EstimatedDeliveryDateService(HttpClient);
             Courier = new CourierService(HttpClient);
+            CourierConnection = new CourierConnectionService(HttpClient);
+            EstimatedDeliveryDate = new EstimatedDeliveryDateService(HttpClient);
         }
 
         private void CheckConfig()
